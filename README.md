@@ -60,20 +60,7 @@ protected void onDraw(Canvas canvas) {
         String upStr = mLrcTexts.get(i);
         float upX = (getWidth() - mNormalPaint.measureText(upStr)) / 2;
         float upY = centerY - (mTextSize + mDividerHeight) * (mCurrentLine - i);
-        // 超出屏幕停止绘制
-        if (upY - mTextSize < 0) {
-            break;
-        }
-        canvas.drawText(upStr, upX, upY, mNormalPaint);
-    }
-
-    // 画当前行下面的
-    for (int i = mCurrentLine + 1; i < mLrcTimes.size(); i++) {
-        String downStr = mLrcTexts.get(i);
-        float downX = (getWidth() - mNormalPaint.measureText(downStr)) / 2;
-        float downY = centerY + (mTextSize + mDividerHeight) * (i - mCurrentLine);
-        // 超出屏幕停止绘制
-        if (downY > getHeight()) {
+        // 超出屏幕停止
             break;
         }
         canvas.drawText(downStr, downX, downY, mNormalPaint);
